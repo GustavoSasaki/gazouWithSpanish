@@ -117,7 +117,7 @@ int cli(QCoreApplication *app, QByteArray *stdinImageData) {
              {"l", "language"},
              QCoreApplication::translate(
                  "main", "Specify OCR language, defaults to jpn. "
-                         "Options: jpn, chi_sim, chi_trad"),
+                         "Options: jpn, chi_sim, chi_trad, spa"),
              QCoreApplication::translate("main", "language"),
          },
          {
@@ -147,7 +147,7 @@ int cli(QCoreApplication *app, QByteArray *stdinImageData) {
 
     if (parser.isSet("language")) {
         QString lang = parser.value("l");
-        if (!(lang == "jpn" || lang == "chi_sim" || lang == "chi_trad")) {
+        if (!(lang == "jpn" || lang == "chi_sim" || lang == "chi_trad" || lang == "spa")) {
             qCritical("Invalid language");
             return 1;
         }

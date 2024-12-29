@@ -23,12 +23,13 @@ ConfigWindow::ConfigWindow(std::map<std::string, QHotkey *> hotkeys,
     this->setCentralWidget(widget);
 
     std::unordered_map<std::string, int> map = {
-        {"jpn", 0}, {"chi_sim", 1}, {"chi_trad", 2}};
+        {"jpn", 0}, {"chi_sim", 1}, {"chi_trad", 2}, {"spa",3}};
 
     langChoice = new QComboBox(widget);
     langChoice->addItem("jpn");
     langChoice->addItem("chi_sim");
     langChoice->addItem("chi_trad");
+    langChoice->addItem("spa");
 
     std::string configLang =
         settings->value("language", "jpn").toString().toStdString();
