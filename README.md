@@ -1,6 +1,6 @@
 # Gazou OCR
 
-Gazou is a Japanese and Chinese OCR application written in C++. It utilizes image processing, and other parameters to improve the accuracy. All contributions are welcome.
+Gazou is a Japanese/Chinese/Spanish OCR application written in C++ by [kamui-fin](https://github.com/kamui-fin/gazou). It utilizes image processing, and other parameters to improve the accuracy. All contributions are welcome.
 
 ## Installation
 
@@ -95,3 +95,8 @@ You can also run gazou by pipeing an image into the CLI:
 ```
 cat img.png | gazou
 ```
+
+
+### Adding another languages
+
+Get the traineddata from [tessdata](https://github.com/tesseract-ocr/tessdata/tree/main) and edit the code similar to this [commit](https://github.com/kamui-fin/gazou/commit/0497ca8f6fcec25e2e3fd333d0f3084e092d66e7)
