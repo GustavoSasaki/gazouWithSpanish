@@ -19,6 +19,7 @@ OCR::OCR() {
                    {"—", ""},    {"－", ""},  {"-", ""},    {"_", ""},
                    {"|", ""}};
     settings = new QSettings("gazou", "gazou");
+    languagesWithoutVertical = QStringList({"spa"});
 }
 
 OCR::~OCR() {
@@ -114,7 +115,7 @@ char *OCR::ocrImage(QString path, ORIENTATION orn, QByteArray *stdinImageData) {
 void OCR::setLanguage(ORIENTATION orn) {
     QString lang = settings->value("language", "jpn").toString();
 
-    if (orn == VERTICAL) {
+    if (orn == VERTICAL && languageHasVertical(lang)) {
         lang += "_vert";
     }
 
@@ -130,6 +131,15 @@ void OCR::setLanguage(ORIENTATION orn) {
     tess->SetPageSegMode(pageSeg);
 
     orientation = orn;
+}
+
+bool OCR::languageHasVertical(QString lang){
+    for(const auto& item: languagesWithoutVertical){
+        if(lang == item){
+            return false;
+        }
+    }
+    return true;
 }
 
 void OCR::setParams() {

@@ -33,10 +33,12 @@ class OCR {
     PIX *image;
     std::map<char *, char *> corrections;
     QSettings *settings;
+    QStringList languagesWithoutVertical;
 
     PIX *processImage(QString path, QByteArray *stdinImageData);
     void extractText();
     void setLanguage(ORIENTATION orn);
+    bool languageHasVertical(QString lang);
     void setParams();
     // text processing
     void postprocess();
